@@ -1,6 +1,6 @@
 #Reading CSV-file to list of lists.
 import csv
-exampleFile = open('Sacramentorealestatetransactions.csv')
+exampleFile = open('Sacramentorealestatetransactions.csv', 'rU')
 exampleReader = csv.reader(exampleFile)
 exampleData = list(exampleReader)
 
