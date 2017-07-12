@@ -1,5 +1,6 @@
 #Reading CSV-file to list of lists.
 import csv
+import sys
 exampleFile = open('Badprice.csv', 'rU')
 exampleReader = csv.reader(exampleFile)
 exampleData = list(exampleReader)
@@ -7,7 +8,7 @@ exampleData = list(exampleReader)
 
 #Declaration of variables.
 maxValue = 0
-minValue = 0
+minValue = sys.float_info.max
 maxIndex = ''
 minIndex = ''
 avgPrice = 0
@@ -28,18 +29,15 @@ for row in exampleData:
             countSquareFootage += 1
             if (maxValue < float(row[9])):
                  maxValue = float(row[9])
-                 maxIndex = row[0]
+                 maxIndex = row
             if (minValue > float(row[9])):
                  minValue = float(row[9])
-                 minIndex = row[0]
+                 minIndex = row
 
 
 #Printing results.
-for row in exampleData:
-    if (row[0] == maxIndex):
-        print('Max price of real estate -- ' + str(row) + ' is: ' + str(maxValue) + '$.')
-    if (row[0] == minValue):
-        print('Min price of real estate -- ' + str(row) + ' is: ' + str(minValue) + '$.')
+print('Max price of real estate -- ' + str(maxIndex) + ' is: ' + str(maxValue) + '$.')
+print('Min price of real estate -- ' + str(minIndex) + ' is: ' + str(minValue) + '$.')
 
 print('Average square footage is -- ' + str(avgSquareFootage / countSquareFootage))
 print('Average price is -- $' + str(avgPrice / countPrice))
