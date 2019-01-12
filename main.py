@@ -21,18 +21,27 @@ COUNT_SQUARE_FOOTAGE = 0
 
 # Creation of two lists.
 for row in EXAMPLE_DATA:
+
     if row[9].isalpha():
+
         continue
+
     else:
+
         if float(row[9]) > 0 and float(row[6]) > 0:
+
             AVG_PRICE += float(row[9])
             AVG_SQUARE_FOOTAGE += float(row[6])
             COUNT_PRICE += 1
             COUNT_SQUARE_FOOTAGE += 1
+
             if MAX_VALUE < float(row[9]):
+
                 MAX_VALUE = float(row[9])
                 MAX_INDEX = row
+
             if MIN_VALUE > float(row[9]):
+
                 MIN_VALUE = float(row[9])
                 MIN_INDEX = row
 
